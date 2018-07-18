@@ -1,1 +1,3 @@
-/Users/bencolegate/Repositories/dotfiles/ideavimrc
+let mapleader = ","
+imap jj <ESC>
+noremap <leader>ia :action ShowIntentionActions<CR>
