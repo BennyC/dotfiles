@@ -1,3 +1,4 @@
 let mapleader = ","
 imap jj <ESC>
 noremap <leader>ia :action ShowIntentionActions<CR>
+noremap <leader>tt :action FileStructurePopup<CR>
