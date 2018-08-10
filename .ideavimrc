@@ -2,3 +2,6 @@ let mapleader = ","
 imap jj <ESC>
 noremap <leader>ia :action ShowIntentionActions<CR>
 noremap <leader>tt :action FileStructurePopup<CR>
+noremap <leader>oi :action OptimizeImports<CR>
+noremap <leader>fu :action FindUsages<CR>
+noremap <leader>re :action Refactorings.QuickListPopupAction<CR>
