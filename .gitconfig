@@ -1,8 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
-name = Ben Colegate
-email = ben.colegate@fourthwallcreative.com
+	name = Ben Colegate
+	email = ben.colegate@fourthwallcreative.com
 [alias]
 	s = status -s
   l = log --abbrev-commit
