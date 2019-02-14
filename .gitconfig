@@ -7,3 +7,4 @@
   l = log --abbrev-commit
 [core]
 	excludesfile = /Users/bencolegate/.gitignore
+	autocrlf = input
