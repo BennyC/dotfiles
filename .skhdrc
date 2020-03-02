@@ -1,0 +1,37 @@
+cmd - return : open -a iTerm
+cmd + shift - return : code
+alt - return: open -a "Google Chrome"
+
+# move window
+shift + cmd - left : yabai -m window --warp west
+shift + cmd - down : yabai -m window --warp south
+shift + cmd - up : yabai -m window --warp north
+shift + cmd - right : yabai -m window --warp east
+
+# balance size of windows
+shift + alt - 0 : yabai -m space --balance
+
+# toggle desktop offset
+alt - a : yabai -m space --toggle padding; yabai -m space --toggle gap
+
+# toggle window parent zoom
+alt - d : yabai -m window --toggle zoom-parent
+
+# toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle window border
+shift + alt - b : yabai -m window --toggle border
+
+# float / unfloat window and center on screen
+shift + alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
+
+alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 20:20:1:1:18:18
+
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+
+ctrl - right : yabai -m space --focus next
+ctrl - left : yabai -m space --focus prev
