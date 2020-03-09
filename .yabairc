@@ -2,8 +2,8 @@
 
 # global settings
 yabai -m config window_placement             second_child
-yabai -m config window_topmost               off
-yabai -m config window_opacity               off
+yabai -m config window_topmost               on
+yabai -m config window_opacity               on
 yabai -m config window_shadow                on
 yabai -m config window_border                on
 yabai -m config window_border_width          4
@@ -20,16 +20,19 @@ yabai -m config mouse_action2                resize
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  20 
-yabai -m config bottom_padding               20
-yabai -m config left_padding                 20
-yabai -m config right_padding                20
-yabai -m config window_gap                   20
+yabai -m config top_padding                  50 
+yabai -m config bottom_padding               50
+yabai -m config left_padding                 50
+yabai -m config right_padding                50
+yabai -m config window_gap                   50
 
 yabai -m space 1 --label "Primary"
 yabai -m space 2 --label "Terminal"
 yabai -m space 3 --label "Chat"
 yabai -m space 4 --label "Media"
+yabai -m space 5 --label "Float"
+
+yabai -m config --space 5 layout bsp
 
 yabai -m rule --add app="Visual Studio Code" space=1
 yabai -m rule --add app="Google Chrome"      space=1
@@ -38,6 +41,8 @@ yabai -m rule --add app="Slack"              space=3
 yabai -m rule --add app="Microsoft Outlook"  space=3
 yabai -m rule --add app="Spotify"            space=4
 
+#yabai -m rule --add space 5 manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Microsoft Outlook$" title!="^(Calendar|Inbox)" manage=off
 
 echo "yabai configuration loaded.."
