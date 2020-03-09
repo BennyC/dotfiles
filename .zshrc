@@ -24,7 +24,7 @@ eval "$(starship init zsh)"
 alias todo="todo.sh"
 
 function wttr() {
-  curl "wttr.in/$1?u&format=%l:%20%c+%t%20%w%20%p"
+  curl "wttr.in/$1?u"
 }
 
 if [ "$TMUX" = "" ]; then tmux; fi
