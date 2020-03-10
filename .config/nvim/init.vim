@@ -3,6 +3,7 @@ scriptencoding utf-8
 call plug#begin('~/.vim/plugged')
   Plug 'phanviet/vim-monokai-pro'
   Plug 'ianks/vim-tsx'
+  Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 " Turn on syntax highlighting

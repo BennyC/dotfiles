@@ -6,6 +6,10 @@ export DEFAULT_USER="bencolegate"
 export GOPATH=~/go
 export GO111MODULE=on
 
+unset LSCOLORS
+export CLICOLOR=1
+export CLICOLOR_FORCE=1
+
 prompt_context(){}
 
 bindkey '^ ' autosuggest-accept
