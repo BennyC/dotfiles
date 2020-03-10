@@ -1,31 +1,27 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export TERM="xterm-256color"
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+EDITOR=nvim
+
+export DEFAULT_USER="bencolegate"
+export GOPATH=~/go
+export GO111MODULE=on
+
+prompt_context(){}
+J
+bindkey '^ ' autosuggest-accept
+
+alias wtf="say `cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f' | head -c 10000`"
+alias todo="todo.sh"
+function wttr() {
+  curl "wttr.in/$1?u"
+}
+
+eval "$(starship init zsh)"
 
 plugins=(
   git wd composer zsh-autosuggestions
 )
 
-source $ZSH/oh-my-zsh.sh
-
-export DEFAULT_USER="bencolegate"
-export PATH=~/.composer/vendor/bin:~/go/bin:$PATH
-export GOPATH=~/go
-export GO111MODULE=on
-prompt_context(){}
-
-alias wtf="say `cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f' | head -c 10000`"
-
-bindkey '^ ' autosuggest-accept
-
-eval "$(starship init zsh)"
-alias todo="todo.sh"
-
-function wttr() {
-  curl "wttr.in/$1?u"
-}
-
 if [ "$TMUX" = "" ]; then tmux; fi
 
+export PATH=~/.composer/vendor/bin:~/go/bin:$PATH
