@@ -19,10 +19,6 @@ function wttr() {
 
 eval "$(starship init zsh)"
 
-plugins=(
-  git wd composer zsh-autosuggestions
-)
-
 if [ "$TMUX" = "" ]; then tmux; fi
 
 export PATH=~/.composer/vendor/bin:~/go/bin:$PATH

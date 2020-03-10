@@ -5,10 +5,12 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "rigellute/tap"
+brew "exercism"
 brew "htop"
 brew "httpd", restart_service: true
 brew "legit"
 brew "mariadb", restart_service: true
+brew "neovim"
 brew "node"
 brew "php"
 brew "php@7.2"
