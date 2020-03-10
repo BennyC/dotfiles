@@ -7,9 +7,10 @@ export GOPATH=~/go
 export GO111MODULE=on
 
 prompt_context(){}
-J
+
 bindkey '^ ' autosuggest-accept
 
+alias vim="nvim"
 alias wtf="say `cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f' | head -c 10000`"
 alias todo="todo.sh"
 function wttr() {
