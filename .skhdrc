@@ -44,3 +44,5 @@ ctrl + alt - 5 : yabai -m space --focus 5
 
 cmd + alt - 5 : yabai -m window --space 5
 
+ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
