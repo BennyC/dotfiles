@@ -14,6 +14,7 @@ prompt_context(){}
 
 bindkey '^ ' autosuggest-accept
 
+alias aws='docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
 alias vim="nvim"
 alias wtf="say `cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f' | head -c 10000`"
 alias todo="todo.sh"
@@ -26,3 +27,4 @@ eval "$(starship init zsh)"
 if [ "$TMUX" = "" ]; then tmux; fi
 
 export PATH=~/.composer/vendor/bin:~/go/bin:$PATH
+export GITHUB_TOKEN=f3c2421266bf80b15c02f4bce674104257fcb383
