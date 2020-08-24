@@ -28,3 +28,6 @@ if [ "$TMUX" = "" ]; then tmux; fi
 
 export PATH=~/.composer/vendor/bin:~/go/bin:$PATH
 export GITHUB_TOKEN=f3c2421266bf80b15c02f4bce674104257fcb383
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
