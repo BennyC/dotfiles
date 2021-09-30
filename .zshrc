@@ -1,33 +1,35 @@
-export TERM="xterm-256color"
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/bencolegate/.oh-my-zsh"
+
+ZSH_THEME="typewritten/typewritten"
+ZSH_DISABLE_COMPFIX=true;
+source $ZSH/oh-my-zsh.sh
 
 EDITOR=nvim
 
-export DEFAULT_USER="bencolegate"
-export GOPATH=~/go
-export GO111MODULE=on
+plugins=(git dotenv osx wd)
+
+export TERM="xterm-256color"
 
 unset LSCOLORS
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
 
-prompt_context(){}
-
-bindkey '^ ' autosuggest-accept
-
 alias aws='docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
 alias vim="nvim"
-alias wtf="say `cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f' | head -c 10000`"
-alias todo="todo.sh"
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+
 function wttr() {
   curl "wttr.in/$1?u"
 }
 
-eval "$(starship init zsh)"
+export DEFAULT_USER="bencolegate"
+export GOPATH=~/go
+export GO111MODULE=on
+export PATH=$GOPATH:$PATH
 
 if [ "$TMUX" = "" ]; then tmux; fi
 
-export PATH=~/.composer/vendor/bin:~/go/bin:$PATH
-export GITHUB_TOKEN=f3c2421266bf80b15c02f4bce674104257fcb383
-
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh

@@ -17,6 +17,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdtree'
   Plug 'dense-analysis/ale'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/goyo.vim'
+  Plug 'vim-airline/vim-airline'
 
 
   let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
@@ -71,11 +73,10 @@ set hidden
 set ttyfast
 
 " Status bar
-set laststatus=2
+set laststatus=1
 
 " Last line
 set showmode
-set showcmd
 
 " Searching
 nnoremap / /\v
@@ -97,6 +98,11 @@ let ayucolor="dark"
 colorscheme ayu
 highlight Normal guibg=none
 highlight NonText guibg=none
+set guitablabel=%t
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+
 
 " mappings
 map <leader>q gqip
@@ -128,3 +134,4 @@ au FileType html setlocal formatprg=js-beautify\ --type\ html
 au FileType scss setlocal formatprg=prettier\ --parser\ css
 au FileType css setlocal formatprg=prettier\ --parser\ css
 
+let g:NERDTreeWinSize=60
