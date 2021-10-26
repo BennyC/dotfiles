@@ -30,6 +30,18 @@ export DEFAULT_USER="bencolegate"
 export GOPATH=~/go
 export GO111MODULE=on
 export PATH=$GOPATH:$PATH
+export PATH=$PATH:$(brew --prefix)/opt/python/libexec/bin
 
 if [ "$TMUX" = "" ]; then tmux; fi
 
+fpath=($fpath "/Users/bencolegate/.zfunctions")
+
+# Set typewritten ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt typewritten
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bencolegate/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bencolegate/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bencolegate/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bencolegate/google-cloud-sdk/completion.zsh.inc'; fi
