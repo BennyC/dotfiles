@@ -3,8 +3,8 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/bencolegate/.oh-my-zsh"
+ZSH_THEME=""
 
-ZSH_THEME="typewritten/typewritten"
 ZSH_DISABLE_COMPFIX=true;
 source $ZSH/oh-my-zsh.sh
 
@@ -18,9 +18,12 @@ unset LSCOLORS
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
 
+# Aliases
 alias aws='docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
 alias vim="nvim"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+alias kgp="kubectl get pods"
+alias kgpc="kubectl get pods -o jsonpath=\"{.items[*].spec.containers[*].image}\""
 
 function wttr() {
   curl "wttr.in/$1?u"
