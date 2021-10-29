@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Ben Colegate
-	email = ben.colegate@fourthwallcreative.com
+	email = ben.colegate@justpark.com
 [alias]
 	s = status -s
   l = log --abbrev-commit

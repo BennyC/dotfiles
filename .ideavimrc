@@ -13,3 +13,5 @@ noremap <leader>re :action Refactorings.QuickListPopupAction<CR>
 noremap <leader>\ :action ToggleDistractionFreeMode<CR>
 noremap <leader>xa :action CloseAllEditors<CR>
 noremap <leader>cno :action MarkNotificationsAsRead<CR>
+noremap <leader>rt :action Rerun<CR>
+set ideajoin
