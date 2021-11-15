@@ -1,16 +1,10 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/bencolegate/.oh-my-zsh"
 ZSH_THEME=""
-
 ZSH_DISABLE_COMPFIX=true;
-source $ZSH/oh-my-zsh.sh
-
 EDITOR=nvim
+plugins=(git dotenv osx wd kubectl kubectx)
 
-plugins=(git dotenv osx wd)
+export ZSH="/Users/bencolegate/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
 
 export TERM="xterm-256color"
 
@@ -18,16 +12,29 @@ unset LSCOLORS
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
 
+function wttr() {
+  curl "wttr.in/$1?u"
+}
+
+# Pinched from Junaid
+function sshJustPark() {
+    podName=$(kubectl get pods | grep '^\justpark' | grep -v 'justpark-web' | grep -o '^[^ ]*');
+    if [ "$podName" = '' ]; then
+        echo "Pod not running";
+    else
+        echo "SSHing to $podName";
+        kubectl exec -it ${podName} -c php-dev -- /bin/bash;
+    fi
+}
+
+
 # Aliases
 alias aws='docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
 alias vim="nvim"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias kgp="kubectl get pods"
 alias kgpc="kubectl get pods -o jsonpath=\"{.items[*].spec.containers[*].image}\""
-
-function wttr() {
-  curl "wttr.in/$1?u"
-}
+alias sjp='sshJustPark'
 
 export DEFAULT_USER="bencolegate"
 export GOPATH=~/go
