@@ -16,12 +16,15 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'preservim/nerdtree'
   Plug 'dense-analysis/ale'
+  Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/goyo.vim'
   Plug 'vim-airline/vim-airline'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'wakatime/vim-wakatime'
 
 
-  let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
+  let g:coc_global_extensions = ['coc-json', 'coc-yank', 'coc-prettier', 'coc-go', 'coc-phpls']
 call plug#end()
 
 " Turn on syntax highlighting
@@ -67,7 +70,8 @@ nnoremap j gj
 nnoremap k gk
 
 " Allow hidden buffers
-set hidden
+set hidden!
+set bufhidden=unload
 
 " Rendering
 set ttyfast
@@ -99,10 +103,8 @@ colorscheme ayu
 highlight Normal guibg=none
 highlight NonText guibg=none
 set guitablabel=%t
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
-
-
 
 " mappings
 map <leader>q gqip
@@ -112,12 +114,14 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
 map <C-n> :NERDTreeToggle<CR>
 nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
+nmap <leader>tt :CocList outline<CR>
+nmap <C-b> <Plug>(coc-definition)
 nnoremap <F5> mzgggqG`z
+nnoremap <silent> <C-p> :Files<CR>
+
 
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-au BufNewFile,BufRead *.ts setlocal filetype=typescript
-au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 
 command! -nargs=0 Format :call     CocAction('format')
 command! -nargs=? Fold   :call     CocAction('fold', <f-args>)
@@ -127,11 +131,22 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-au FileType javascript setlocal formatprg=prettier
-au FileType javascript.jsx setlocal formatprg=prettier
-au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-au FileType html setlocal formatprg=js-beautify\ --type\ html
-au FileType scss setlocal formatprg=prettier\ --parser\ css
-au FileType css setlocal formatprg=prettier\ --parser\ css
+au BufRead,BufNewFile *.go set filetype=go
 
-let g:NERDTreeWinSize=60
+let g:NERDTreeWinSize=40
+let g:NERDTreeIgnore = ['^bazel-', '^build$']
+
+set autowrite
+
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+
+let g:go_auto_sameids = 1
+let g:go_auto_type_info = 1
+set updatetime=100

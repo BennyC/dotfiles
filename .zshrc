@@ -1,6 +1,7 @@
 clear
 neofetch
 
+
 # Environment
 unset LSCOLORS
 export CLICOLOR=1
@@ -8,14 +9,18 @@ export CLICOLOR_FORCE=1
 
 export EDITOR=nvim
 
+export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass
 export DEFAULT_USER="bencolegate"
 export GOPATH=~/go
 export GO111MODULE=on
 export PATH=$GOPATH:$PATH
 export PATH=$PATH:$(brew --prefix)/opt/python/libexec/bin
+export PATH=$PATH:~/.zsh-plugins/git-trim
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
+
+bindkey -e
 
 # Homebrew completion
 if type brew &>/dev/null

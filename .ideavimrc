@@ -1,17 +1,42 @@
 let mapleader = ","
-imap jj <ESC>
 
+set clipboard+=unnamed
+set clipboard+=ideaput
+set ideajoin
+set ideamarks
+set idearefactormode=keep
+set incsearch
+set ideastatusicon=gray
+
+imap jj <ESC>
 
 noremap j gj
 noremap k gk
 
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
 noremap <leader>ia :action ShowIntentionActions<CR>
-noremap <leader>tt :action FileStructurePopup<CR>
+noremap <leader>te :action ActivateTerminalToolWindow<CR>
 noremap <leader>oi :action OptimizeImports<CR>
 noremap <leader>fu :action FindUsages<CR>
+noremap <leader>fs :action FileStructurePopup<CR>
 noremap <leader>re :action Refactorings.QuickListPopupAction<CR>
-noremap <leader>\ :action ToggleDistractionFreeMode<CR>
-noremap <leader>xa :action CloseAllEditors<CR>
-noremap <leader>cno :action MarkNotificationsAsRead<CR>
-noremap <leader>rt :action Rerun<CR>
-set ideajoin
+noremap <leader>tr :action Rerun<CR>
+noremap <leader>tt :action RunContextGroupInner<CR>
+
+noremap <M-t> :action FileStructurePopup<CR>
+nnoremap <c-b> :action GotoSymbol<CR>
+nnoremap gc :action GotoClass<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotToDeclaration<CR>
+nnoremap gp :action GotToSuperMethod<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+
+nnoremap <leader>q :action CloseContent<CR>
+nnoremap <leader>qa :action CloseAllEditors<CR>
+
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>

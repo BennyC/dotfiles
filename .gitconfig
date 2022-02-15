@@ -1,11 +1,12 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Ben Colegate
-	email = ben.colegate@justpark.com
+	email = BennyC@users.noreply.github.com
 [alias]
 	s = status -s
   l = log --abbrev-commit
-  cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+  cleanup = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+
 [core]
 	excludesfile = /Users/bencolegate/.gitignore
 	autocrlf = input
