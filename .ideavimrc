@@ -36,7 +36,8 @@ nnoremap gb :action Back<CR>
 nnoremap gf :action Forward<CR>
 
 nnoremap <leader>q :action CloseContent<CR>
-nnoremap <leader>qa :action CloseAllEditors<CR>
+nnoremap <leader>qa :action CloseAllEditorsButActive<CR>
+nnoremap <leader>qu :action CloseAllUnmodifiedEditors<CR>
 
 nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>

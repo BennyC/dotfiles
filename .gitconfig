@@ -6,6 +6,10 @@
 	s = status -s
   l = log --abbrev-commit
   cleanup = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+  pf = push --force-with-lease
+  po = !CURRENT=$(git symbolic-ref --short HEAD) && git push -u origin $CURRENT 
+  current = branch --show-current
+
 
 [core]
 	excludesfile = /Users/bencolegate/.gitignore
@@ -19,3 +23,7 @@
 	defaultBranch = main
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[diff]
+  tool=nvimdiff
+[git-town]
+	offline = false
