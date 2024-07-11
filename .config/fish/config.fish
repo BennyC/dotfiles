@@ -26,9 +26,3 @@ if status is-interactive
 
     neofetch --ascii $HOME/.jp-ascii.txt
 end
-
-
-if status is-interactive
-    and not set -q TMUX
-    exec tmux
-end
