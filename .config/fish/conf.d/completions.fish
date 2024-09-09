@@ -4,3 +4,5 @@ starship init fish | source
 kubectl argo rollouts completion fish | source
 zoxide init fish | source
 fzf --fish | source
+dagger completion fish | source
+docker completion fish | source
